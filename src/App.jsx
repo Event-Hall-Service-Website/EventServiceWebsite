@@ -1,11 +1,17 @@
-function App() {
+import React from "react";
+import { Router, Routes, Route } from "react-router-dom";
+import Layout from "./layout/Layout";
+import Home from "./pages/Homepage";
+import PagenotFound from "./pages/PagenotFound";
+const App = () => {
   return (
-    <>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="*" element={<PagenotFound />} /> {/* Catch-all route */}
+      </Route>
+    </Routes>
   );
-}
+};
 
 export default App;
