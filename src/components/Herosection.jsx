@@ -4,30 +4,35 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import heroimage1 from "../assets/img/heroimage1.png";
+import heroimage2 from "../assets/img/heroimage2.png";
+import heroimage3 from "../assets/img/heroimage3.avif";
+import heroimage4 from "../assets/img/heroimage4.avif";
+import heroimage7 from "../assets/img/heroimage7.png";
 
 const images = [
   {
-    src: "/src/assets/img/heroimage1.png",
+    src: heroimage1,
     overlayText:
       "Discover the perfect venue for your next event. Our event center offers versatile spaces, modern amenities, and exceptional service to make your occasion unforgettable. Whether it’s a wedding, corporate meeting, or birthday bash, we have the ideal setting for you. ",
   },
   {
-    src: "/src/assets/img/heroimage2.png",
+    src: heroimage2,
     overlayText:
       "Host your dream wedding in a breathtaking venue with elegant decoration.",
   },
   {
-    src: "/src/assets/img/heroimage3.avif",
+    src: heroimage3,
     overlayText:
       "Modern facilities for productive corporate meetings and conferences.",
   },
   {
-    src: "/src/assets/img/heroimage4.avif",
+    src: heroimage4,
     overlayText:
       "Celebrate your special moments in a charming and spacious setting.",
   },
   {
-    src: "/src/assets/img/heroimage7.png",
+    src: heroimage7,
     overlayText:
       "Create unforgettable memories with our exceptional event services.",
   },
