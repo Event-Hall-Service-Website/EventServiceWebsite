@@ -14,7 +14,7 @@ const images = [
   {
     src: "/src/assets/img/heroimage2.png",
     overlayText:
-      "Host your dream wedding in a breathtaking venue with elegant decor.",
+      "Host your dream wedding in a breathtaking venue with elegant decoration.",
   },
   {
     src: "/src/assets/img/heroimage3.avif",
@@ -27,7 +27,7 @@ const images = [
       "Celebrate your special moments in a charming and spacious setting.",
   },
   {
-    src: "/src/assets/img/heroimage6.avif",
+    src: "/src/assets/img/heroimage7.png",
     overlayText:
       "Create unforgettable memories with our exceptional event services.",
   },
@@ -50,20 +50,28 @@ const Herosection = () => {
               <img
                 src={item.src}
                 alt={`Slide ${index + 1}`}
-                className="w-full h-[500px] sm:h-[600px] object-cover rounded-lg"
+                className="w-full h-[500px]  object-cover "
               />
-              <div className="absolute inset-0 flex items-center justify-center  text-white  bg-black opacity-50 text-lg font-bold">
-                <div className="w-4/5  lg:w-[400]">
-                  <h6 className="text-[10px] lg:text-3xl font-bold">
+              <div className="absolute inset-0 flex items-center justify-center  text-white  bg-black opacity-70 text-lg font-bold">
+                <div className="w-4/5  lg:w-[800px] ">
+                  {index == 0 ? (
+                    <h1 className="text-center  text-2xl lg:text-5xl font-bold leading-20 lg:leading-20 font-poppins">
+                      welcome to Eventure Hall
+                    </h1>
+                  ) : (
+                    ""
+                  )}
+
+                  <p className="text-[20px]  lg:text-2xl font-light text-center leading-[1.5] font-poppins">
                     {item.overlayText}
-                  </h6>
-                  <button
+                  </p>
+                  {/* <button
                     type="submit"
-                    className="bg-red-500 text-white p-2 rounded-lg mt-2"
+                    className="bg -red-500 text-white p-2 rounded-lg mt-2"
                     onClick={() => console.log("Button Clicked")}
                   >
                     <a href="https://tailwindcss.com/docs/padding">clikcj</a>
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>
