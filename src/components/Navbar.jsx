@@ -17,14 +17,16 @@ const Navbar = () => {
     <nav className="bg-orange-400 w-full z-50 flex justify-center items-center relative">
       <div className="flex justify-between items-center container px-6 py-3 bg-amber-950 lg:h-[100px] w-full">
         {/* Logo */}
-        <div className="text-white text-3xl font-bold">Eventure</div>
+        <div className="text-white text-4xl font-bold lg:text-3xl font-PlusJakartaSans">
+          Eventure
+        </div>
 
         {/* Hamburger Button (Mobile) */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden text-white focus:outline-none z-50"
+          className="lg:hidden text-white focus:outline-none z-50 p-2.5"
         >
-          {isOpen ? <X size={32} /> : <Menu size={32} />}
+          {isOpen ? <X size={52} /> : <Menu size={52} />}
         </button>
 
         {/* Navigation Links - Desktop */}
@@ -67,7 +69,7 @@ const Navbar = () => {
               onClick={() => setIsOpen(false)}
               className="absolute top-6 right-6 text-white"
             >
-              <X size={32} />
+              <X size={52} />
             </button>
 
             {NavRoutes.map((route) => (
