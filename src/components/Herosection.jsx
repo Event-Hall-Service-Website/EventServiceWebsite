@@ -70,6 +70,7 @@ const Herosection = () => {
                   <p className="text-[20px]  lg:text-2xl font-light text-center leading-[1.5] font-poppins">
                     {item.overlayText}
                   </p>
+
                   {/* <button
                     type="submit"
                     className="bg -red-500 text-white p-2 rounded-lg mt-2"
