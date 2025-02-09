@@ -9,38 +9,56 @@ import heroimage2 from "../assets/img/heroimage2.png";
 import heroimage3 from "../assets/img/heroimage3.avif";
 import heroimage4 from "../assets/img/heroimage4.avif";
 import heroimage7 from "../assets/img/heroimage7.png";
+import Button from "./Button";
 
-const images = [
-  {
-    src: heroimage1,
-    overlayText:
-      "Discover the perfect venue for your next event. Our event center offers versatile spaces, modern amenities, and exceptional service to make your occasion unforgettable. Whether it’s a wedding, corporate meeting, or birthday bash, we have the ideal setting for you. ",
-  },
-  {
-    src: heroimage2,
-    overlayText:
-      "Host your dream wedding in a breathtaking venue with elegant decoration.",
-  },
-  {
-    src: heroimage3,
-    overlayText:
-      "Modern facilities for productive corporate meetings and conferences.",
-  },
-  {
-    src: heroimage4,
-    overlayText:
-      "Celebrate your special moments in a charming and spacious setting.",
-  },
-  {
-    src: heroimage7,
-    overlayText:
-      "Create unforgettable memories with our exceptional event services.",
-  },
-];
+const images = [heroimage1, heroimage2, heroimage3, heroimage4, heroimage7];
 
 const Herosection = () => {
   return (
     <div className="relative w-full">
+      {/* Static Text Overlay */}
+      <div className="absolute inset-0 flex items-center justify-center text-white bg-black opacity-70 text-lg font-bold z-10 px-4">
+        <div className="w-4/5 lg:w-[800px] text-center">
+          <h1 className="text-xl sm:text-2xl lg:text-5xl font-bold leading-tight font-poppins">
+            Welcome to Eventure Hall
+          </h1>
+
+          {/* Mobile Shorter Text */}
+          <p className="text-[16px] sm:text-lg lg:text-2xl font-light leading-9 sm:leading-7 lg:leading-10 font-plus-jakarta-sans mb-4 sm:mb-6 lg:mb-10 sm:hidden ">
+            The perfect venue for any event, offering modern amenities &
+            top-notch service.
+          </p>
+
+          {/* Desktop Full Text */}
+          <p className="hidden sm:block text-[18px] lg:text-2xl font-light leading-7 lg:leading-10 font-poppins mb-6 lg:mb-10">
+            Discover the perfect venue for your next event. Our event center
+            offers versatile spaces, modern amenities, and exceptional service
+            to make your occasion unforgettable. Whether it’s a wedding,
+            corporate meeting, or birthday bash, we have the ideal setting for
+            you.
+          </p>
+
+          {/* Buttons */}
+          <div className="flex justify-center mt-4 sm:mt-8 ">
+            {/* Mobile: "Book for an Event" button */}
+            <Button className="bg-[#5833F1] hover:bg-sky-700 w-[190px] h-[50px] text-white px-4 py-2 rounded-lg transition cursor-pointer font-light font-plus-jakarta-sans sm:hidden text-[20px]">
+              Book for an Event
+            </Button>
+
+            {/* Desktop: "View Gallery" & "Contact Us" buttons */}
+            <div className="hidden sm:flex gap-6">
+              <Button className="bg-[#5833F1] hover:bg-sky-700 w-[150px] h-[50px] text-white px-4 py-2 rounded-lg transition cursor-pointer font-light font-poppins">
+                View Gallery
+              </Button>
+              <Button className="border border-[#5833F1] hover:bg-sky-700 w-[150px] h-[50px] text-white px-4 py-2 rounded-lg transition cursor-pointer font-light font-poppins">
+                Contact Us
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Swiper for Images Only */}
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         navigation
@@ -49,38 +67,13 @@ const Herosection = () => {
         loop
         className="shadow-lg"
       >
-        {images.map((item, index) => (
+        {images.map((src, index) => (
           <SwiperSlide key={index}>
-            <div className="relative">
-              <img
-                src={item.src}
-                alt={`Slide ${index + 1}`}
-                className="w-full h-[500px]  object-cover "
-              />
-              <div className="absolute inset-0 flex items-center justify-center  text-white  bg-black opacity-70 text-lg font-bold">
-                <div className="w-4/5  lg:w-[800px] ">
-                  {index == 0 ? (
-                    <h1 className="text-center  text-2xl lg:text-5xl font-bold leading-20 lg:leading-20 font-poppins">
-                      welcome to Eventure Hall
-                    </h1>
-                  ) : (
-                    ""
-                  )}
-
-                  <p className="text-[20px]  lg:text-2xl font-light text-center leading-[1.5] font-poppins">
-                    {item.overlayText}
-                  </p>
-
-                  {/* <button
-                    type="submit"
-                    className="bg -red-500 text-white p-2 rounded-lg mt-2"
-                    onClick={() => console.log("Button Clicked")}
-                  >
-                    <a href="https://tailwindcss.com/docs/padding">clikcj</a>
-                  </button> */}
-                </div>
-              </div>
-            </div>
+            <img
+              src={src}
+              alt={`Slide ${index + 1}`}
+              className="w-full h-[400px] sm:h-[500px] object-cover"
+            />
           </SwiperSlide>
         ))}
       </Swiper>

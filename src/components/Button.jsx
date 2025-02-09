@@ -1,29 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames";
 
 const Button = ({
   children,
-  style = {},
-  hoverStyle = {},
   onClick = () => {},
   type = "submit",
   className = "",
 }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseEnter = () => setIsHovered(true);
-  const handleMouseLeave = () => setIsHovered(false);
-
-  const buttonStyles = isHovered ? { ...style, ...hoverStyle } : style;
-
   return (
     <button
       type={type}
-      className={classnames("myButton", className)}
-      style={buttonStyles}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      className={classnames(
+        "px-6 py-2 rounded-lg   transition duration-300 ease-in-out  active:scale-95",
+        className
+      )}
       onClick={onClick}
     >
       {children}
@@ -33,8 +24,6 @@ const Button = ({
 
 Button.propTypes = {
   children: PropTypes.node.isRequired,
-  style: PropTypes.object,
-  hoverStyle: PropTypes.object,
   onClick: PropTypes.func,
   type: PropTypes.oneOf(["button", "submit", "reset"]),
   className: PropTypes.string,

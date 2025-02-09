@@ -1,32 +1,32 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react"; // Import icons
-import { NavRoutes } from "../data/NavBarArrays"; // Ensure correct path
+import { Menu, X } from "lucide-react";
+import { NavRoutes } from "../data/NavBarArrays";
+import Button from "./Button";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
-  // Determine if the current route is active
   function isActive(routes) {
     return location.pathname === routes;
   }
 
   return (
-    <nav className="bg-orange-400 w-full z-50 flex justify-center items-center relative">
-      <div className="flex justify-between items-center container px-6 py-3 bg-amber-950 lg:h-[100px] w-full">
+    <nav className="fixed top-0 w-full z-50 bg-white shadow-md flex justify-center">
+      <div className="flex justify-between items-center container px-6 py-3 lg:h-[80px] w-full">
         {/* Logo */}
-        <div className="text-white text-4xl font-bold lg:text-3xl font-PlusJakartaSans">
-          Eventure
+        <div className="text-black text-4xl font-bold lg:text-3xl font-sansita-swashed cursor-pointer">
+          Eventure Hall
         </div>
 
         {/* Hamburger Button (Mobile) */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden text-white focus:outline-none z-50 p-2.5"
+          className="lg:hidden text-[#5833F1] focus:outline-none z-50 p-2.5"
         >
-          {isOpen ? <X size={52} /> : <Menu size={52} />}
+          {isOpen ? <X size={45} /> : <Menu size={45} />}
         </button>
 
         {/* Navigation Links - Desktop */}
@@ -38,9 +38,9 @@ const Navbar = () => {
                 onClick={() => setIsOpen(false)}
                 className={`text-lg transition-colors duration-300 ${
                   isActive(route.path)
-                    ? "text-white font-bold"
-                    : "text-gray-300 hover:text-white"
-                } font-PlusJakartaSans`}
+                    ? "text-[#5833F1] font-extrabold"
+                    : "text-black hover:text-sky-700"
+                } font-plus-jakarta-sans lg:text-[17px] font-medium`}
               >
                 {route.label}
               </Link>
@@ -49,9 +49,9 @@ const Navbar = () => {
         </ul>
 
         {/* Button - Desktop */}
-        <button className="hidden lg:block bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">
-          Get Started
-        </button>
+        <Button className="hidden lg:block bg-[#5833F1] hover:bg-sky-700 w-[150px] h-[50px] text-white px-4 py-2 rounded-lg transition cursor-pointer font-light font-plus-jakarta-sans">
+          Book Now
+        </Button>
       </div>
 
       {/* Mobile Menu */}
@@ -62,14 +62,14 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="fixed top-0 left-0 w-full h-screen bg-amber-950 flex flex-col items-center justify-center space-y-6 z-50 gap-6"
+            className="fixed top-0 left-0 w-full h-screen bg-sky-800 flex flex-col items-center justify-center space-y-6 z-50 gap-6"
           >
-            {/* Close Button Inside Menu */}
+            {/* Close Button */}
             <button
               onClick={() => setIsOpen(false)}
               className="absolute top-6 right-6 text-white"
             >
-              <X size={52} />
+              <X size={45} />
             </button>
 
             {NavRoutes.map((route) => (
@@ -81,16 +81,16 @@ const Navbar = () => {
                   isActive(route.path)
                     ? "text-white font-bold"
                     : "text-gray-300 hover:text-white"
-                } font-PlusJakartaSans`}
+                } font-plus-jakarta-sans`}
               >
                 {route.label}
               </Link>
             ))}
 
             {/* Mobile Button */}
-            <button className="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600 transition">
-              Get Started
-            </button>
+            <Button className="bg-[#5833F1] hover:bg-sky-700 w-[150px] h-[50px] text-white px-4 py-2 rounded-lg transition cursor-pointer font-light font-plus-jakarta-sans">
+              Book Now
+            </Button>
           </motion.div>
         )}
       </AnimatePresence>
