@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 import heroimage1 from "../assets/img/heroimage1.png";
 import heroimage2 from "../assets/img/heroimage2.png";
 import heroimage3 from "../assets/img/heroimage3.avif";
@@ -60,8 +60,7 @@ const Herosection = () => {
 
       {/* Swiper for Images Only */}
       <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
-        navigation
+        modules={[Pagination, Autoplay]}
         pagination={{ clickable: true }}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
         loop
